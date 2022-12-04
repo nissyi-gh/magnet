@@ -3,14 +3,14 @@
   <thead>
     <tr>
       <th>データベース名</th>
-      <th>URL</th>
+      <th>データベースID</th>
     </tr>
   </thead>
   <tbody>
     <% @databases.each do |database| %>
       <tr>
         <td><%= database.name %></td>
-        <td><%= database.url %></td>
+        <td><%= database.database_id %></td>
       </tr>
     <% end %>
   </tbody>
