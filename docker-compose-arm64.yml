@@ -1,0 +1,20 @@
+version: '3'
+services:
+  mysql:
+    image: arm64v8/mysql:8.0.31
+    restart: always
+    environment:
+      - MYSQL_ROOT_PASSWORD=password
+    ports:
+      - "3306:3306"
+  app:
+    build:
+      context: .
+      dockerfile: ./dockerfiles/Dockerfile_arm64
+    command: bundle exec rails s -b '0.0.0.0'
+    volumes:
+      - .:/myapp
+    ports:
+      - "3024:3000"
+    depends_on:
+      - mysql
