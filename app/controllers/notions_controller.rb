@@ -1,5 +1,5 @@
 class NotionsController < ApplicationController
   def index
-    @databases = Notion::Database.get
+    @databases = Notion::Database.all
   end
 end
